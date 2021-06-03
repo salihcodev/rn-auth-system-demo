@@ -9,13 +9,10 @@ const ProfileScreen = ({ navigation: { navigate } }: any) => {
   return (
     <View style={style.pageWrapper}>
       <View style={style.profileWrapper}>
-        <Text style={style.profileHeading}>Your profile</Text>
-        <TouchableOpacity onPress={() => navigate("LoginScreen")}>
-          <Text>Login</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => navigate("SignupScreen")}>
-          <Text>Signup</Text>
+        <Text style={style.profileHeading}>Hello, user</Text>
+        <View style={style.logoutWrapper}></View>
+        <TouchableOpacity onPress={() => {}}>
+          <Text>Logout</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -39,5 +36,8 @@ const style = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
     color: "#9494a1",
+  },
+  logoutWrapper: {
+    marginTop: 30,
   },
 });

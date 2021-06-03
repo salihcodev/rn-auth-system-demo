@@ -30,9 +30,9 @@ const TabsNavigatorWrapper = () => {
               <AntDesign
                 name="home"
                 size={24}
-                color={focused ? "#7345a8" : "#9494a1"}
+                color={focused ? "#5c3566" : "#9494a1"}
               />
-              {/* {focused ? <Text style={style.routeActivePoint}></Text> : null} */}
+              {focused ? <Text style={style.routeActivePoint}></Text> : null}
             </View>
           ),
         }}
@@ -46,9 +46,9 @@ const TabsNavigatorWrapper = () => {
               <AntDesign
                 name="user"
                 size={24}
-                color={focused ? "#7345a8" : "#9494a1"}
+                color={focused ? "#5c3566" : "#9494a1"}
               />
-              {/* {focused ? <Text style={style.routeActivePoint}></Text> : null} */}
+              {focused ? <Text style={style.routeActivePoint}></Text> : null}
             </View>
           ),
         }}
@@ -62,9 +62,9 @@ const TabsNavigatorWrapper = () => {
               <AntDesign
                 name="setting"
                 size={24}
-                color={focused ? "#7345a8" : "#9494a1"}
+                color={focused ? "#5c3566" : "#9494a1"}
               />
-              {/* {focused ? <Text style={style.routeActivePoint}></Text> : null} */}
+              {focused ? <Text style={style.routeActivePoint}></Text> : null}
             </View>
           ),
         }}
@@ -81,14 +81,14 @@ const color = {
     color: "#9494a1",
   },
   activeRoute: {
-    color: "#7345a8",
+    color: "#5c3566",
   },
 };
 
 const style = StyleSheet.create({
   navigator: {
     position: "absolute",
-    bottom: 25,
+    bottom: 15,
     left: 20,
     right: 20,
     elevation: 0,
@@ -114,11 +114,11 @@ const style = StyleSheet.create({
     borderWidth: 7,
     borderStyle: "solid",
   },
-  // routeActivePoint: {
-  //   width: 6,
-  //   height: 6,
-  //   backgroundColor: "#7345a8",
-  //   borderRadius: 50,
-  //   marginTop: 8,
-  // },
+  routeActivePoint: {
+    width: 6,
+    height: 6,
+    backgroundColor: "#5c3566",
+    borderRadius: 50,
+    marginTop: 3,
+  },
 });

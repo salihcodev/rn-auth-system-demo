@@ -1,14 +1,15 @@
 // >>>> import pkgs:
 import * as React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 // >>>> import utils: 'routers, models, ... anything created-modified by the developer'
+import AuthSignupForm from "../../../components/base/auth-signup-form/authSignupForm.comp";
 
 // >>>> screen:
 const SignupScreen = ({ navigation: { navigate } }: any) => {
   return (
     <View style={style.pageWrapper}>
-      <Text>Signup</Text>
+      <AuthSignupForm navigate={navigate} />
     </View>
   );
 };
@@ -20,6 +21,7 @@ const style = StyleSheet.create({
     flex: 1,
     backgroundColor: "#ece8e8",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
+    paddingBottom: 50,
   },
 });
