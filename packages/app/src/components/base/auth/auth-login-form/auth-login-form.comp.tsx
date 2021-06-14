@@ -1,28 +1,38 @@
 // >>>> import pkgs:
 import * as React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   View,
   Text,
+  Image,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
 } from "react-native";
 ("@react-navigation/bottom-tabs");
-import { AntDesign } from "@expo/vector-icons";
 
 // >>>> import utils: 'routers, models, ... anything created-modified by the developer'
-import FormInput from "../../shared/form-input/formInput.comp";
-import SudoBtn from "../../shared/sudo-btn/sudo-btn.comp";
-
-// >>>> interface:
-// components interface
-export interface formDataInterface {
-  email: string | null;
-  password: string | null;
-}
+import FormInput from "../../../shared/form-input/formInput.comp";
+import SudoBtn from "../../../shared/sudo-btn/sudo-btn.comp";
+import { authLoginHandler } from "../auth-logging.events";
+import {
+  authLoginFormTypes,
+  userStoreTypes,
+} from "../../../../interfaces/auth/auth.interfaces";
 
 // >>>> component:
 const AuthLoginForm = ({ navigate }: any) => {
+  // >>>> builtin hooks:
+  const dispatch = useDispatch();
+
+  // return state to choose and extract:
+  const { stage } = useSelector(
+    ({ user: { user, stage } }: userStoreTypes) => ({
+      user,
+      stage,
+    })
+  );
+
   // login form schema
   const formSchema = {
     email: null,
@@ -30,7 +40,8 @@ const AuthLoginForm = ({ navigate }: any) => {
   };
 
   // inputs value:
-  const [formData, setFormData] = React.useState<formDataInterface>(formSchema);
+  const [formData, setFormData] =
+    React.useState<authLoginFormTypes>(formSchema);
 
   return (
     <View style={style.formWrapper}>
@@ -50,20 +61,40 @@ const AuthLoginForm = ({ navigate }: any) => {
         <FormInput
           inputName="password"
           inputLabel="Password"
-          inputPlaceholder="fd9$932^&g*dfg%6gfd*8*"
+          inputPlaceholder="fd9$932^&fg%6g8*"
           getInputVal={(text: string, name: string) =>
             setFormData({ ...formData, [name]: text })
           }
         />
         <View style={style.btnWrapper}>
-          <SudoBtn>
-            <TouchableOpacity style={style.btnStyles} onPress={() => {}}>
-              <Text style={{ color: "#FFF" }}>Login</Text>
-            </TouchableOpacity>
-          </SudoBtn>
+          {stage === `BUSY` ? (
+            <SudoBtn>
+              <TouchableOpacity
+                style={style.btnStyles}
+                onPress={() => dispatch(authLoginHandler(formData))}
+              >
+                <Text style={{ color: "#FFF" }}>
+                  <Text>Loading...</Text>
+                  <Image
+                    style={{ width: 20, height: 20, top: 5, left: 10 }}
+                    source={require(`../../../../../assets/imgs/loading.gif`)}
+                  />
+                </Text>
+              </TouchableOpacity>
+            </SudoBtn>
+          ) : (
+            <SudoBtn>
+              <TouchableOpacity
+                style={style.btnStyles}
+                onPress={() => dispatch(authLoginHandler(formData))}
+              >
+                <Text style={{ color: "#FFF" }}>Login</Text>
+              </TouchableOpacity>
+            </SudoBtn>
+          )}
         </View>
         <View style={style.outTheForm}>
-          <Text>You Don't have an account?</Text>
+          <Text>You don't have an account yet?</Text>
           <TouchableOpacity onPress={() => navigate("SignupScreen")}>
             <Text style={style.subText}>signup</Text>
           </TouchableOpacity>

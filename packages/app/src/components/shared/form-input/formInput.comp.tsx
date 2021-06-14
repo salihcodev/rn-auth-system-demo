@@ -2,7 +2,6 @@
 import * as React from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 ("@react-navigation/bottom-tabs");
-import { AntDesign } from "@expo/vector-icons";
 
 // >>>> import utils: 'routers, models, ... anything created-modified by the developer'
 
@@ -30,7 +29,9 @@ const FormInput: React.VFC<CompProps> = ({
         editable
         maxLength={40}
         style={style.input}
-        onChangeText={(t: string) => getInputVal(t, inputName)}
+        onChangeText={(t: string) => {
+          getInputVal(t.trim().toLowerCase(), inputName);
+        }}
       ></TextInput>
     </View>
   );

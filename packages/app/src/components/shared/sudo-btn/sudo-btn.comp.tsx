@@ -1,6 +1,6 @@
 // >>>> import pkgs:
 import * as React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, StyleSheet } from "react-native";
 ("@react-navigation/bottom-tabs");
 import { AntDesign } from "@expo/vector-icons";
 
@@ -16,16 +16,16 @@ export interface CompProps {
 // >>>> component:
 const SudoBtn: React.VFC<CompProps> = ({ altBtn, children }) => {
   return altBtn ? (
-    <View style={style.altLoginBtn}>{children}</View>
+    <View style={style.altSudoBtn}>{children}</View>
   ) : (
-    <View style={style.loginBtn}>{children}</View>
+    <View style={style.sudoBtn}>{children}</View>
   );
 };
 
 export default SudoBtn;
 
 const style = StyleSheet.create({
-  loginBtn: {
+  sudoBtn: {
     backgroundColor: "#5c3566",
     alignSelf: "stretch",
     display: "flex",
@@ -34,23 +34,13 @@ const style = StyleSheet.create({
     height: 51,
     borderRadius: 5,
   },
-  loginText: {
-    textAlign: "center",
-    color: "#fff",
-    fontSize: 17,
-  },
-  altLoginBtn: {
-    backgroundColor: "#1b191b",
+  altSudoBtn: {
+    backgroundColor: "#ffffff",
     alignSelf: "stretch",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     height: 51,
     borderRadius: 5,
-  },
-  altLoginText: {
-    textAlign: "center",
-    color: "#fff",
-    fontSize: 17,
   },
 });

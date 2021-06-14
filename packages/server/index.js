@@ -6,6 +6,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 // >>>> import utils: 'routers, models, ... anything created-modified by the developer'
+import authRouter from "./src/routers/user/user.routes.js";
 
 // >>>> initialize the app:
 const PORT = process.env.PORT || 8000;
@@ -25,7 +26,10 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 // initial route
 app.get("/", (req, res) => res.send("Hello World"));
 
-const connectionToDatabase = async () => {
+// auth routes
+app.use("/api/auth", authRouter);
+
+const connectingToDatabase = async () => {
   try {
     await mongoose.connect(process.env.MONGO_CONNECTION_URI, {
       useNewUrlParser: true,
@@ -42,7 +46,9 @@ const connectionToDatabase = async () => {
   }
 };
 
-connectionToDatabase();
+connectingToDatabase();
 
-// clean the console warnings
+// clear the console warnings
+mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
+mongoose.set("useCreateIndex", true);

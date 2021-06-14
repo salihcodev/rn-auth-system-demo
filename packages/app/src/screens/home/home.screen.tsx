@@ -11,28 +11,17 @@ const HomeScreen = ({ navigation: { navigate } }: any) => {
     <View style={style.pageWrapper}>
       <View style={style.container}>
         <Text style={style.mainHeading}>So you wanna auth yourself, hah? </Text>
-        <View style={style.loggingControllers}>
-          <View style={style.loggingCont}>
-            <SudoBtn altBtn>
-              <TouchableOpacity
-                style={style.btnStyles}
-                onPress={() => navigate("LoginScreen")}
-              >
-                <Text style={{ color: "#FFF" }}>Login</Text>
-              </TouchableOpacity>
-            </SudoBtn>
-          </View>
-          <Text style={style.spacer}></Text>
-          <View style={style.loggingCont}>
-            <SudoBtn>
-              <TouchableOpacity
-                style={style.btnStyles}
-                onPress={() => navigate("SignupScreen")}
-              >
-                <Text style={{ color: "#FFF" }}>Signup</Text>
-              </TouchableOpacity>
-            </SudoBtn>
-          </View>
+        <View style={style.startPoint}>
+          <SudoBtn>
+            <TouchableOpacity
+              style={style.btnStyles}
+              onPress={() => navigate("ProfileScreen")}
+            >
+              <Text style={{ color: "#FFF", fontWeight: "bold" }}>
+                Let's start your journey
+              </Text>
+            </TouchableOpacity>
+          </SudoBtn>
         </View>
       </View>
     </View>
@@ -42,13 +31,6 @@ const HomeScreen = ({ navigation: { navigate } }: any) => {
 export default HomeScreen;
 
 const style = StyleSheet.create({
-  btnStyles: {
-    color: "#fff",
-    alignSelf: "stretch",
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
   pageWrapper: {
     flex: 1,
     backgroundColor: "#ece8e8",
@@ -57,22 +39,19 @@ const style = StyleSheet.create({
   },
   container: {
     top: 200,
+    paddingHorizontal: 20,
   },
   mainHeading: {
     color: "#9494a1",
-    fontWeight: "bold",
-    fontSize: 20,
+    textTransform: "uppercase",
+    fontSize: 27,
   },
-  loggingControllers: {
-    marginTop: 30,
-    flexDirection: "row",
-  },
-  loggingCont: {
-    justifyContent: "center",
-    alignItems: "center",
+  btnStyles: {
+    color: "#fff",
+    alignSelf: "stretch",
     flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  spacer: {
-    width: 10,
-  },
+  startPoint: { marginTop: 30 },
 });
