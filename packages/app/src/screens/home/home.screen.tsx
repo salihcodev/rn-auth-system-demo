@@ -11,28 +11,17 @@ const HomeScreen = ({ navigation: { navigate } }: any) => {
     <View style={style.pageWrapper}>
       <View style={style.container}>
         <Text style={style.mainHeading}>So you wanna auth yourself, hah? </Text>
-        <View style={style.loggingControllers}>
-          <View style={style.loggingCont}>
-            <SudoBtn altBtn>
-              <TouchableOpacity
-                style={style.btnStyles}
-                onPress={() => navigate("LoginScreen")}
-              >
-                <Text style={{ color: "#FFF" }}>Login</Text>
-              </TouchableOpacity>
-            </SudoBtn>
-          </View>
-          <Text style={style.spacer}></Text>
-          <View style={style.loggingCont}>
-            <SudoBtn>
-              <TouchableOpacity
-                style={style.btnStyles}
-                onPress={() => navigate("SignupScreen")}
-              >
-                <Text style={{ color: "#FFF" }}>Signup</Text>
-              </TouchableOpacity>
-            </SudoBtn>
-          </View>
+        <View style={style.startPoint}>
+          <SudoBtn>
+            <TouchableOpacity
+              style={style.btnStyles}
+              onPress={() => navigate("ProfileScreen")}
+            >
+              <Text style={{ color: "#FFF", fontWeight: "bold" }}>
+                Let's start your journey
+              </Text>
+            </TouchableOpacity>
+          </SudoBtn>
         </View>
       </View>
     </View>
@@ -58,21 +47,5 @@ const style = StyleSheet.create({
   container: {
     top: 200,
   },
-  mainHeading: {
-    color: "#9494a1",
-    fontWeight: "bold",
-    fontSize: 20,
-  },
-  loggingControllers: {
-    marginTop: 30,
-    flexDirection: "row",
-  },
-  loggingCont: {
-    justifyContent: "center",
-    alignItems: "center",
-    flex: 1,
-  },
-  spacer: {
-    width: 10,
-  },
+  startPoint: { marginTop: 30 },
 });

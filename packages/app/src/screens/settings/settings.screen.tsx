@@ -8,7 +8,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 const SettingsScreen = ({ navigation: { navigate } }: any) => {
   return (
     <View style={style.pageWrapper}>
-      <Text>Settings here</Text>
+      <Text>Settings went here</Text>
     </View>
   );
 };
