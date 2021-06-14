@@ -3,8 +3,9 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import * as React from "react";
 import { View, StyleSheet } from "react-native";
 
-// >>>> import utils: 'routers, models, ... anything created-modified by the developer'
+// >>>> import utils: ... anything created-modified by the developer'
 import AuthLoginForm from "../../../components/base/auth/auth-login-form/auth-login-form.comp";
+
 
 // >>>> screen:
 const LoginScreen = ({ navigation: { navigate } }: any) => {

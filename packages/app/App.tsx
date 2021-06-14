@@ -35,9 +35,11 @@ export default function App() {
   }
 
   return (
+
     <Provider store={store}>
       <NavigationContainer>
         <StatusBar style="light" backgroundColor="#5c3566" />
+
 
         {/* tabs navigators wrapper */}
         <RootStack.Navigator initialRouteName="HomeScreen">

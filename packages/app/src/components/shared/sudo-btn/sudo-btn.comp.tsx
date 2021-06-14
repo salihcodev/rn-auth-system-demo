@@ -1,10 +1,11 @@
 // >>>> import pkgs:
 import * as React from "react";
 import { View, StyleSheet } from "react-native";
+
 ("@react-navigation/bottom-tabs");
 import { AntDesign } from "@expo/vector-icons";
 
-// >>>> import utils: 'routers, models, ... anything created-modified by the developer'
+// >>>> import utils: ... anything created-modified by the developer'
 
 // >>>> interface:
 // components interface

@@ -34,8 +34,7 @@ const ProfileScreen = ({ navigation: { navigate } }: any) => {
 
   return (
     <View style={style.pageWrapper}>
-      <View style={style.profileWrapper}>
-        <Text style={style.profileHeading}>
+      <View style={style.profileWrapper}>        <Text style={style.profileHeading}>
           {userName ? `Greetings, ${userName?.split(" ")[0]}` : `Greetings...`}
         </Text>
         <Text style={{ textAlign: "center" }}>How are you doing tody?</Text>
@@ -172,5 +171,8 @@ const style = StyleSheet.create({
     height: 50,
     display: "flex",
     justifyContent: "center",
+  },
+  logoutWrapper: {
+    marginTop: 30,
   },
 });

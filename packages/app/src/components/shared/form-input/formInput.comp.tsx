@@ -3,7 +3,8 @@ import * as React from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 ("@react-navigation/bottom-tabs");
 
-// >>>> import utils: 'routers, models, ... anything created-modified by the developer'
+
+// >>>> import utils:  ... anything created-modified by the developer'
 
 // >>>> interface:
 // component interface:
@@ -29,9 +30,11 @@ const FormInput: React.VFC<CompProps> = ({
         editable
         maxLength={40}
         style={style.input}
+
         onChangeText={(t: string) => {
           getInputVal(t.trim().toLowerCase(), inputName);
         }}
+
       ></TextInput>
     </View>
   );

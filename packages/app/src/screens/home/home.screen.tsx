@@ -31,6 +31,13 @@ const HomeScreen = ({ navigation: { navigate } }: any) => {
 export default HomeScreen;
 
 const style = StyleSheet.create({
+  btnStyles: {
+    color: "#fff",
+    alignSelf: "stretch",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   pageWrapper: {
     flex: 1,
     backgroundColor: "#ece8e8",
@@ -39,19 +46,6 @@ const style = StyleSheet.create({
   },
   container: {
     top: 200,
-    paddingHorizontal: 20,
-  },
-  mainHeading: {
-    color: "#9494a1",
-    textTransform: "uppercase",
-    fontSize: 27,
-  },
-  btnStyles: {
-    color: "#fff",
-    alignSelf: "stretch",
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
   startPoint: { marginTop: 30 },
 });
